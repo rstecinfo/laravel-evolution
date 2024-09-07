@@ -10,15 +10,39 @@ class SendMessageService
      * @var EvolutionApi
      */
     protected EvolutionApi $api;
-
+    protected string $instance;
     /**
      * SendMessageService constructor.
      *
      * Inicializa o serviço com uma instância de EvolutionApi.
      */
-    public function __construct(EvolutionApi $api)
+    public function __construct(EvolutionApi $api, string $instance = '')
     {
         $this->api = $api;
+        $this->instance = $instance;
+    }
+
+    /**
+     * Define a instância da API Evolution.
+     *
+     * @param string $instance ID da instância
+     * @return $this
+     * @throws \InvalidArgumentException Se o ID da instância for inválido
+     */
+    public function setInstance(string $instance)
+    {
+        // Verificação básica se a instância não é uma string vazia
+        if (empty($instance)) {
+            throw new \InvalidArgumentException("O ID da instância não pode ser vazio.");
+        }
+
+        // Validação opcional: Verifique o formato do ID da instância se necessário (exemplo com regex)
+        // if (!preg_match('/^[a-zA-Z0-9_-]+$/', $instance)) {
+        //     throw new \InvalidArgumentException("O ID da instância contém caracteres inválidos.");
+        // }
+
+        $this->instance = $instance;
+        return $this;
     }
 
     /**
