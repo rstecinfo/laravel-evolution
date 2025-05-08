@@ -30,13 +30,14 @@ class EvolutionInstanceService
      *
      * @return array A resposta da API
      */
-    public function createInstance(string $instanceName, bool $qrcode = true, string $integration = 'WHATSAPP-BAILEYS'): array
+    public function createInstance(string $instanceName, bool $qrcode = true, string $integration): array
     {
-        return $this->api->post('/instance/create', [
+        $data = [
             'instanceName' => $instanceName,
-            'qrcode' => $qrcode,
             'integration' => $integration,
-        ]);
+            'qrcode' => $qrcode ?? true,
+        ];
+        return $this->api->post('/instance/create', $data);
     }
 
     /**

@@ -41,8 +41,8 @@ class EvolutionApi
     public function __construct(string $baseUrl = null, string $apiKey = null)
     {
         // Se não forem passados valores, utiliza as configurações
-        $this->baseUrl = $baseUrl ?? config('evolution.api_url');
-        $this->apiKey = $apiKey ?? config('evolution.api_key');
+        $this->baseUrl = $baseUrl;
+        $this->apiKey = $apiKey;
 
         // Instancia o cliente Guzzle com a URL base e os headers padrões (API Key)
         $this->client = new Client([
@@ -51,19 +51,6 @@ class EvolutionApi
                 'apikey' => $this->apiKey,  // Adiciona o cabeçalho da chave de API para todas as requisições
             ]
         ]);
-    }
-
-    /**
-     * Cria uma nova instância do EvolutionApi usando configurações do arquivo de configuração.
-     *
-     * @return self
-     */
-    public static function client(): self
-    {
-        return new self(
-            config('evolution.api_url'),  // Pega a URL base do arquivo de configuração
-            config('evolution.api_key')    // Pega a chave de API do arquivo de configuração
-        );
     }
 
     // Novo método para definir o cliente Guzzle (apenas para fins de teste)
@@ -90,10 +77,12 @@ class EvolutionApi
             ]);
 
             // Retorna o corpo da resposta decodificado como array
-            return json_decode($response->getBody()->getContents(), true);
+            $ret = json_decode($response->getBody()->getContents(), true);
+            return $ret ?? [];
         } catch (GuzzleException $e) {
             // Lidar com exceções de forma apropriada
-            throw new \Exception("Erro ao fazer requisição GET: " . $e->getMessage());
+            //throw new \Exception("Erro ao fazer requisição GET: " . $e->getMessage());
+            return ['error' => $e->getMessage()];
         }
     }
 
@@ -118,7 +107,8 @@ class EvolutionApi
             return json_decode($response->getBody()->getContents(), true);
         } catch (GuzzleException $e) {
             // Lidar com exceções de forma apropriada
-            throw new \Exception("Erro ao fazer requisição POST: " . $e->getMessage());
+            //throw new \Exception("Erro ao fazer requisição POST: " . $e->getMessage());
+            return ['error' => $e->getMessage()];
         }
     }
 
@@ -143,7 +133,8 @@ class EvolutionApi
             return json_decode($response->getBody()->getContents(), true);
         } catch (GuzzleException $e) {
             // Lidar com exceções de forma apropriada
-            throw new \Exception("Erro ao fazer requisição DELETE: " . $e->getMessage());
+            //throw new \Exception("Erro ao fazer requisição DELETE: " . $e->getMessage());
+            return ['error' => $e->getMessage()];
         }
     }
 }

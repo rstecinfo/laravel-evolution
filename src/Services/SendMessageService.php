@@ -189,4 +189,32 @@ class SendMessageService
         return $this->api->post("/message/sendPoll/$this->instance", $data);
     }
 
+    /**
+     * Envia um template para o número de destino.
+     *
+     * @param string $number Número de destino
+     * @param array $options (Opcional) Opções adicionais.
+     * @return array Resposta da API
+     */
+    
+    public function sendTemplate(string $number, array $options = []): array
+    {
+        $data = array_merge(['number' => $number], $options);
+        return $this->api->post("/message/sendTemplate/$this->instance", $options);
+    }
+
+    /**
+     * Envia botões para o número de destino.
+     *
+     * @param string $number Número de destino
+     * @param array $options (Opcional) Opções adicionais.
+     * @return array Resposta da API
+     */
+    
+    public function sendList(string $number, array $options = []): array
+    {
+        $data = array_merge(['number' => $number], $options);
+        return $this->api->post("/message/sendList/$this->instance", $options);
+    }
+
 }
