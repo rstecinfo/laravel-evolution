@@ -41,9 +41,9 @@ class EvolutionApi
     public function __construct(string $baseUrl = null, string $apiKey = null)
     {
         // Se não forem passados valores, utiliza as configurações
-        $this->baseUrl = $baseUrl;
-        $this->apiKey = $apiKey;
-
+        $this->baseUrl = $baseUrl ?? config('evolution.api_url');
+        $this->apiKey = $apiKey ?? config('evolution.api_key');
+        
         // Instancia o cliente Guzzle com a URL base e os headers padrões (API Key)
         $this->client = new Client([
             'base_uri' => $this->baseUrl,
