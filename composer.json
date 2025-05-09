@@ -1,7 +1,7 @@
 {
     "name": "rstecinfo/laravel-evolution",
     "description": "Pacote laravel para Evolution API",
-    "version": "5.2.6",
+    "version": "1.0.1",
     "type": "library",
     "license": "MIT",
     "autoload": {
