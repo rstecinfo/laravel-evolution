@@ -21,14 +21,28 @@ class WhatsappHelper {
     
     /**
      * Inicia whatsapp
-     * @reconnect bool true para reconectar instancia
-     * @return bool true
+     * @return array status
      */
-    public function startInstance($reconnect=false) 
+    public function startInstance() 
     {
         //verifica status da instancia
         $evolutionInstanceService = new EvolutionInstanceService($this->api);
         $connectionState = $evolutionInstanceService->getConnectionStatus($this->instance);
+        return $connectionState;
      }
+
+    /**
+     * Cria whatsapp
+     * @return array status
+     */
+    public function startInstance() 
+    {
+        $createInstance = $evolutionInstanceService->createInstance(this->instance,true,'WHATSAPP-BAILEYS');
+        if (isset($createInstance["qrcode"])) {
+            return $createInstance["qrcode"]["base64"];
+        }
+        return ['connected'];
+    }
+
 }
 ```
