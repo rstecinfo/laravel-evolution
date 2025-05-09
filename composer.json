@@ -6,25 +6,25 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Luanrodrigues\\LaravelEvolution\\": "src/"
+            "RSTecInfo\\LaravelEvolution\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Luanrodrigues\\LaravelEvolution\\Tests\\": "tests/"
+            "RSTecInfo\\LaravelEvolution\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Luanrodrigues\\LaravelEvolution\\Providers\\LaravelEvolutionServiceProvider"
+                "RSTecInfo\\LaravelEvolution\\Providers\\LaravelEvolutionServiceProvider"
             ]
         }
     },
     "authors": [
         {
-            "name": "Luan Rodrigues",
-            "email": "luan@luanrodrigues.com.br"
+            "name": "RSTecInfo",
+            "email": "sac@RSTecInfo"
         }
     ],
     "require": {

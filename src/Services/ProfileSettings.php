@@ -1,8 +1,8 @@
 <?php
 
-namespace Luanrodrigues\LaravelEvolution\Services;
+namespace RSTecInfo\LaravelEvolution\Services;
 
-use Luanrodrigues\LaravelEvolution\EvolutionApi;
+use RSTecInfo\LaravelEvolution\EvolutionApi;
 
 class ProfileSettings
 {
