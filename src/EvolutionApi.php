@@ -147,14 +147,14 @@ class EvolutionApi
      * @return array A resposta da API decodificada para um array PHP
      * @throws GuzzleException
      */
-    public function status(string $endpoint)
+    public function status(string $endpoint): array
     {
         try {
             // Faz uma requisição GET 
             return $this->client->request('GET', $endpoint);
         } catch (GuzzleException $e) {
             $response = $e?->getResponse();
-            return json_decode($response?->getBody()?->getContents());
+            return json_decode($response?->getBody()?->getContents(),true);
         }
     }
     
