@@ -149,8 +149,13 @@ class EvolutionApi
      */
     public function status(string $endpoint): array
     {
-        // Faz uma requisição GET 
-        return $this->client->request('GET', $endpoint);
+        try {
+            // Faz uma requisição GET 
+            return $this->client->request('GET', $endpoint);
+        } catch (GuzzleException $e) {
+            $response = $e?->getResponse();
+            return [$response?->getBody()?->getContents()];
+        }
     }
     
 }
