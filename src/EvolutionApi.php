@@ -151,7 +151,12 @@ class EvolutionApi
     {
         try {
             // Faz uma requisição GET 
-            return $this->client->request('GET', $endpoint);
+            $response = $this->client->request('GET', $endpoint);
+
+            // Retorna o corpo da resposta decodificado como array
+            $ret = json_decode($response->getBody()->getContents(), true);
+            return $ret ?? [];
+            
         } catch (GuzzleException $e) {
             $response = $e?->getResponse();
             return json_decode($response?->getBody()?->getContents(),true);
