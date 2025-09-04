@@ -98,7 +98,7 @@ class EvolutionInstanceService
      */
     public function getConnectionStatus(string $instance): array
     {
-        return $this->api->get("/instance/connectionState/{$instance}");
+        return $this->api->status("/instance/connectionState/{$instance}");
     }
 
     /**

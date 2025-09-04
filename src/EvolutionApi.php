@@ -137,4 +137,20 @@ class EvolutionApi
             return ['error' => $e->getMessage()];
         }
     }
+    
+    /**
+     * Faz uma requisição GET para a API Evolution.
+     *
+     * @param string $endpoint O endpoint relativo da API (ex: '/instance/fetchInstances')
+     * @param array $params Parâmetros de consulta (query) a serem enviados na URL
+     *
+     * @return array A resposta da API decodificada para um array PHP
+     * @throws GuzzleException
+     */
+    public function status(string $endpoint): array
+    {
+        // Faz uma requisição GET 
+        return $this->client->request('GET', $endpoint);
+    }
+    
 }
