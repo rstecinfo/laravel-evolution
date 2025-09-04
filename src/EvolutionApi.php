@@ -154,7 +154,7 @@ class EvolutionApi
             return $this->client->request('GET', $endpoint);
         } catch (GuzzleException $e) {
             $response = $e?->getResponse();
-            return [$response?->getBody()?->getContents()];
+            return json_decode($response?->getBody()?->getContents());
         }
     }
     
