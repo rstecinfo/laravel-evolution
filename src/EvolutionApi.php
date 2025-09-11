@@ -162,6 +162,9 @@ class EvolutionApi
             
         } catch (GuzzleException $e) {
             $response = $e?->getResponse();
+            if ($response == null) {
+                return [null];
+            }
             return json_decode($response?->getBody()?->getContents(),true);
         }
     }
