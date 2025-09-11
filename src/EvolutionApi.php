@@ -155,6 +155,9 @@ class EvolutionApi
 
             // Retorna o corpo da resposta decodificado como array
             $ret = json_decode($response->getBody()->getContents(), true);
+            if ($ret == null) {
+                return [null];
+            }
             return is_array($ret) ? $ret : [$ret];
             
         } catch (GuzzleException $e) {
