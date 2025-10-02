@@ -161,11 +161,12 @@ class EvolutionApi
             return is_array($ret) ? $ret : [$ret];
             
         } catch (GuzzleException $e) {
-            $response = $e?->getResponse();
-            if ($response == null) {
-                return [null];
+            $response = $e?->getResponse() ?? null;
+            if (!$response) {
+                return [];
             }
-            return json_decode($response?->getBody()?->getContents(),true);
+            $json = json_decode($response?->getBody()?->getContents(),true);
+            return $json ?? [];
         }
     }
     
