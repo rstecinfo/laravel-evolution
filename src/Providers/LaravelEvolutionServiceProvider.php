@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\LaravelEvolution\Providers;
+namespace RSTecInfo\LaravelEvolution\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\LaravelEvolution\Facades;
+namespace RSTecInfo\LaravelEvolution\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

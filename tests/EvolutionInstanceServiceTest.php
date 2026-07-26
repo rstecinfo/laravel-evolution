@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Luanrodrigues\LaravelEvolution\Services\EvolutionInstanceService;
-use Luanrodrigues\LaravelEvolution\EvolutionApi;
+use RSTecInfo\LaravelEvolution\Services\EvolutionInstanceService;
+use RSTecInfo\LaravelEvolution\EvolutionApi;
 use PHPUnit\Framework\TestCase;
 use Mockery;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\LaravelEvolution;
+namespace RSTecInfo\LaravelEvolution;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

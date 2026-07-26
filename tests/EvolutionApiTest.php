@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use Luanrodrigues\LaravelEvolution\EvolutionApi;
+use RSTecInfo\LaravelEvolution\EvolutionApi;
 use PHPUnit\Framework\TestCase;
 use Mockery;
 
