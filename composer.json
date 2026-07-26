@@ -1,5 +1,6 @@
 {
-    "name": "luanrodrigues/laravel-evolution",
+    "name": "rstecinfo/laravel-evolution",
+    "version": "1.0.1",
     "description": "Pacote laravel para Evolution API",
     "type": "library",
     "license": "MIT",
@@ -28,7 +29,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^11.0",
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0",
         "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
